@@ -19,12 +19,12 @@ interface ToolbarProps {
 const options = {
   width: 400,
   height: 120,
-  yellowFrom: 0.0,
-  yellowTo: 1.0,
+  yellowFrom: 2.0,
+  yellowTo: 3.0,
   redFrom: 4.0,
   redTo:5.0,
-  min: 0.0,
-  max: 5.0,
+  min: 2.0,
+  max: 4.0,
   minorTicks: 0.1
 }
 
