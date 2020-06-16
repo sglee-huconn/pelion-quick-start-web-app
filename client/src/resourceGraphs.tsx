@@ -2,6 +2,7 @@ import moment from "moment";
 import React from "react";
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { Devices, Names, Paths, ResourceValue } from ".";
+import { Chart } from "react-google-charts";
 
 const TOPAZ = "#00C1DE";
 const OPAL = "#FFFFFF";
@@ -30,51 +31,96 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
         const styleColour =
           val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;
         return (
-          <div className="device" key={res}>
-            <h3 title={deviceId}>
-              {deviceName} - {resourceName}
-            </h3>
-            <div className="App-graph">
-              <div className="graph">{showPath(paths[res])}</div>
-              <div className="value">
-                <h1 title={moment(val1.time, "lll").toString()}>
-                  <span style={{ color: styleColour }}>{val1.value.toFixed(1)}</span>
-                </h1>
-              </div>
-            </div>
-          </div>
+          // <div className="device" key={res}>
+          //   <h3 title={deviceId}>
+          //     {deviceName} - {resourceName}
+          //   </h3>
+          //   <div className="App-graph">
+          //     <div className="graph">{showPath(paths[res])}</div>
+          //     <div className="value">
+          //       <h1 title={moment(val1.time, "lll").toString()}>
+          //         <span style={{ color: styleColour }}>{val1.value.toFixed(1)}</span>
+          //       </h1>
+          //     </div>
+          //   </div>
+          // </div>
+          <Component
+          initialState={{
+            voltage: 0.0,
+            intervalID: null,
+          }}
+
+          didMount={component => {
+            const intervalID = setInterval(() => {
+              component.setState({
+                voltage: Math.random() * 5,
+                intervalID,
+              })
+            }, 1000)
+          }}
+          willUnmount={component => {
+            if (component.state.intervalID !== null) {
+              clearInterval(component.state.intervalID)
+            }
+          }}
+        >
+          {comp => {
+            return (
+              <Chart
+                width={400}
+                height={120}
+                chartType="Gauge"
+                loader={<div>Loading Chart</div>}
+                data={[
+                  ['Label', 'Value'],
+                  ['Voltage', comp.state.voltage]
+                ]}
+                options={{
+                  redFrom: 4.0,
+                  redTo: 5.0,
+                  yellowFrom: 0.0,
+                  yellowTo: 1.0,
+                  minorTicks: 0.1,
+                  min: 0.0,
+                  max: 5.0
+                }}
+                rootProps={{ 'data-testid': '1' }}
+              />
+            )
+          }}
+        </Component>
         );
       });
 
-  const showPath = (values: ResourceValue[]) => {
-    const max = Math.ceil(values.reduce((a, c) => (a ? (c.value > a ? c.value : a) : c.value), -Infinity));
-    const min = Math.floor(values.reduce((a, c) => (c.value < a ? c.value : a), Infinity));
-    const margin = Math.ceil((max - min) * 0.1);
-    return (
-      <ResponsiveContainer aspect={16 / 9} minHeight={150}>
-        <LineChart data={values}>
-          <Line dot={false} type="monotone" dataKey="value" animationEasing="linear" stroke={TOPAZ} strokeWidth="3px" />
-          <XAxis
-            scale="time"
-            dataKey="epoch"
-            type="number"
-            stroke={OPAL}
-            domain={["auto", "auto"]}
-            tickFormatter={d => moment(d).format("LT")}
-          />
-          <YAxis stroke={OPAL} domain={[Math.floor(min - margin), Math.ceil(max + margin)]} />
-          <Tooltip labelFormatter={d => moment(d).format("ll LTS")} contentStyle={{ backgroundColor: ONYX }} />
-        </LineChart>
-      </ResponsiveContainer>
-    );
-  };
+  // const showPath = (values: ResourceValue[]) => {
+  //   const max = Math.ceil(values.reduce((a, c) => (a ? (c.value > a ? c.value : a) : c.value), -Infinity));
+  //   const min = Math.floor(values.reduce((a, c) => (c.value < a ? c.value : a), Infinity));
+  //   const margin = Math.ceil((max - min) * 0.1);
+  //   return (
+  //     <ResponsiveContainer aspect={16 / 9} minHeight={150}>
+  //       <LineChart data={values}>
+  //         <Line dot={false} type="monotone" dataKey="value" animationEasing="linear" stroke={TOPAZ} strokeWidth="3px" />
+  //         <XAxis
+  //           scale="time"
+  //           dataKey="epoch"
+  //           type="number"
+  //           stroke={OPAL}
+  //           domain={["auto", "auto"]}
+  //           tickFormatter={d => moment(d).format("LT")}
+  //         />
+  //         <YAxis stroke={OPAL} domain={[Math.floor(min - margin), Math.ceil(max + margin)]} />
+  //         <Tooltip labelFormatter={d => moment(d).format("ll LTS")} contentStyle={{ backgroundColor: ONYX }} />
+  //       </LineChart>
+  //     </ResponsiveContainer>
+  //   );
+  // };
 
-  const showDevices = (d: Devices) =>
-    Object.keys(d)
-      .sort((a, b) => a.localeCompare(b))
-      .map(res => showDevice(d[res], res));
+  // const showDevices = (d: Devices) =>
+  //   Object.keys(d)
+  //     .sort((a, b) => a.localeCompare(b))
+  //     .map(res => showDevice(d[res], res));
 
-  return <React.Fragment>{showDevices(devices)}</React.Fragment>;
+  // return <React.Fragment>{showDevices(devices)}</React.Fragment>;
 };
 
 export default ResourceGraphs;
