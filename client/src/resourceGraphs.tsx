@@ -112,7 +112,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
   //     .sort((a, b) => a.localeCompare(b))
   //     .map(res => showDevice(d[res], res));
 
-  // return <React.Fragment>{showDevices(devices)}</React.Fragment>;
+  return <React.Fragment>{showDevices(devices)}</React.Fragment>;
 };
 
 export default ResourceGraphs;
