@@ -24,7 +24,7 @@ const options = {
   redFrom: 4.0,
   redTo:5.0,
   min: 2.0,
-  max: 4.0,
+  max: 5.0,
   minorTicks: 0.1
 }
 
