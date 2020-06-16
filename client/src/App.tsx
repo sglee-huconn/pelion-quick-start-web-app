@@ -10,12 +10,17 @@ export const apiUrl = window.location.href;
 const PAUSE_FOR_POLL = 1000 * 5; // 5 seconds
 
 const resourceNames: Names = {
-  "/3200/.*/5501": "Counter",
-  "/3303/.*/5700": "Temperature sensor",
-  "/3304/.*/5700": "Relative humidity",
-  "/3305/.*/5800": "Power",
-  "/3306/.*/5700": "On/Off",
-  "/3323/.*/5700": "Air pressure",
+  "/3316/0/5700": "Avg. Voltage",
+  "/3316/1/5700": "Cell0 Voltage",
+  "/3316/2/5700": "Cell1 Voltage",
+  "/3316/3/5700": "Cell2 Voltage",
+  "/3316/4/5700": "Cell3 Voltage",
+  "/3316/5/5700": "Cell4 Voltage",
+  "/3316/6/5700": "Cell5 Voltage",
+  "/3316/7/5700": "Cell6 Voltage",
+  "/3316/8/5700": "Cell7 Voltage",
+  "/3316/9/5700": "Cell8 Voltage",
+  "/3316/10/5700": "Cell9 Voltage",
 };
 
 const App: React.FC = () => {

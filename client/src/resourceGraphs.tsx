@@ -29,6 +29,7 @@ const options = {
 }
 
 const state = {
+  title: "Voltage",
   voltage: 0.0
 }
 
@@ -39,7 +40,7 @@ const getVoltage = () => {
 const getData = () => {
   return [
     ["Label", "Value"],
-    ["Voltage", state.voltage]
+    [state.title, state.voltage]
   ]
 }
 
@@ -59,8 +60,9 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
         const styleColour =
           val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;
 
+        state.title = resourceName;
         state.voltage = val1.value;
-        
+
         return (
           // <div className="device" key={res}>
           //   <h3 title={deviceId}>
@@ -77,9 +79,6 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
           // </div>
 
           <div className="device" key={res}>
-            <h3 title={deviceId}>
-              {deviceName} - {resourceName}
-            </h3>
             <div className="App-graph">
               <div className="VoltageGauge">
                 <Chart
@@ -89,11 +88,6 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
                   data={getData()}
                   options={options}
                 />
-              </div>
-              <div className="value">
-                <h1 title={moment(val1.time, "lll").toString()}>
-                  <span style={{ color: styleColour }}>{val1.value.toFixed(1)}</span>
-                </h1>
               </div>
             </div>
           </div>          
