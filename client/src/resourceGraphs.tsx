@@ -15,6 +15,34 @@ interface ToolbarProps {
   resourceNames: Names;
   deviceNames: Names;
 }
+
+const options = {
+  width: 400,
+  height: 120,
+  yellowFrom: 0.0,
+  yellowTo: 1.0,
+  redFrom: 4.0,
+  redTo:5.0,
+  min: 0.0,
+  max: 5.0,
+  minorTicks: 0.1
+}
+
+const state = {
+  voltage: 0.0
+}
+
+const getVoltage = () => {
+  return Math.random() * 5.0;
+}
+
+const getData = () => {
+  return [
+    ["Label", "Value"],
+    ["Voltage", state.voltage]
+  ]
+}
+
 const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resourceNames }) => {
   const showDevice = (paths: Paths, deviceId: string) =>
     Object.keys(paths)
@@ -44,51 +72,15 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
           //     </div>
           //   </div>
           // </div>
-          <Component
-          initialState={{
-            voltage: 0.0,
-            intervalID: null,
-          }}
-
-          didMount={component => {
-            const intervalID = setInterval(() => {
-              component.setState({
-                voltage: Math.random() * 5,
-                intervalID,
-              })
-            }, 1000)
-          }}
-          willUnmount={component => {
-            if (component.state.intervalID !== null) {
-              clearInterval(component.state.intervalID)
-            }
-          }}
-        >
-          {comp => {
-            return (
-              <Chart
-                width={400}
-                height={120}
-                chartType="Gauge"
-                loader={<div>Loading Chart</div>}
-                data={[
-                  ['Label', 'Value'],
-                  ['Voltage', comp.state.voltage]
-                ]}
-                options={{
-                  redFrom: 4.0,
-                  redTo: 5.0,
-                  yellowFrom: 0.0,
-                  yellowTo: 1.0,
-                  minorTicks: 0.1,
-                  min: 0.0,
-                  max: 5.0
-                }}
-                rootProps={{ 'data-testid': '1' }}
-              />
-            )
-          }}
-        </Component>
+          <div className="VoltageGauge">
+            <Chart
+              chartType = "Gauge"
+              width="100%"
+              height="400px"
+              data={getData()}
+              options={options}
+            />
+          </div>
         );
       });
 
