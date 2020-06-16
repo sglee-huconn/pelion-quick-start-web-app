@@ -30,7 +30,7 @@ body {
 .App-graph-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15px, 1fr));
-  gap: 10px 10px;
+  gap: 15px 15px;
 }
 .device-list {
   width: 100%;
