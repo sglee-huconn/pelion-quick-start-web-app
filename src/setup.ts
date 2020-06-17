@@ -71,9 +71,13 @@ export const setup = async () => {
 
     // Create new pre-subscriptions for devices and resources configured in DEVICE_ID and RESOURCE
     const subscriptionBody: SubscriptionBody[] = [];
-    deviceId.forEach(d => subscriptionBody.push({ "endpoint-name": d, "resource-path": resourcePaths }));
-
+    deviceId.forEach(d => {
+      subscriptionBody.push({ "endpoint-name": d, "resource-path": resourcePaths })
+      console.log(`${d}: ${resourcePaths}`)
+    });
+  
     console.log("Setting pre-subscriptions");
+    console.log("${JSON.stringify(subscriptionBody)}");
     // PUT /v2/subscriptions
     await fetch(subscriptionsUrl, { method: "PUT", headers, body: JSON.stringify(subscriptionBody) }).then(checkStatus);
 
