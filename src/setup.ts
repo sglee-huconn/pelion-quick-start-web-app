@@ -73,11 +73,14 @@ export const setup = async () => {
     const subscriptionBody: SubscriptionBody[] = [];
     deviceId.forEach(d => {
       subscriptionBody.push({ "endpoint-name": d, "resource-path": resourcePaths })
-      console.log(`${d}: ${resourcePaths}`)
+      console.log(`sun: ${d}: ${resourcePaths}`)
     });
   
     console.log("Setting pre-subscriptions");
-    console.log("${JSON.stringify(subscriptionBody)}");
+    const _body: any = JSON.stringify(subscriptionBody);
+    console.log(`sun: url: ${subscriptionsUrl.toJSON()}`);
+    console.log(`sun: headers: ${headers}`);
+    console.log(`sun: body: ${_body}`);
     // PUT /v2/subscriptions
     await fetch(subscriptionsUrl, { method: "PUT", headers, body: JSON.stringify(subscriptionBody) }).then(checkStatus);
 
@@ -109,10 +112,13 @@ export const setup = async () => {
           )
           .forEach(
             // Set subscription on each resource PUT /v2/subscriptions/{deviceID}/{resourcePath}
-            async resource =>
+            async resource => {
               await fetch(`${subscriptionsUrl}/${device.id}/${resource.uri}`, { method: "PUT", headers }).then(
                 checkStatus
               )
+
+              console.log(`sun: ${subscriptionsUrl}/${device.id}/${resource.uri}`);
+            }
           );
       });
     console.log("Subscriptions updated");
