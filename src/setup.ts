@@ -92,6 +92,7 @@ export const setup = async () => {
      * 3. Set subscription for matching resources
      */
     await resolveIn(5000);
+    /*
     console.log("Setting subscriptions on registered devices");
     // Get registered devices GET /v3/devices?state_eq=registered ==> list of devices with deviceIDs
     const registeredDevices = (await fetch(`${deviceDirectoryUrl}?state__eq=registered`, { headers })
@@ -126,6 +127,7 @@ export const setup = async () => {
       });
     console.log("Subscriptions updated");
     await resolveIn(5000);
+    */
     /**
      * Remove old webhook if exists so we can use long-polling or to set new one
      * DELETE /v2/notification/callback
