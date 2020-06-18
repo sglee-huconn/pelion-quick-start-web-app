@@ -91,13 +91,14 @@ export const setup = async () => {
      * 2. Get resources for each device.
      * 3. Set subscription for matching resources
      */
-
+    await resolveIn(5000);
     console.log("Setting subscriptions on registered devices");
     // Get registered devices GET /v3/devices?state_eq=registered ==> list of devices with deviceIDs
     const registeredDevices = (await fetch(`${deviceDirectoryUrl}?state__eq=registered`, { headers })
       .then(checkStatus)
       .then(res => res.json())) as RegisteredDevicesResponse;
 
+    await resolveIn(5000);
     registeredDevices.data
       // Filter for matching DEVICE_ID
       .filter(device => deviceId.reduce<boolean>((prev, curr) => prev || matchWithWildcard(curr, device.id), false))
@@ -124,7 +125,7 @@ export const setup = async () => {
           );
       });
     console.log("Subscriptions updated");
-
+    await resolveIn(5000);
     /**
      * Remove old webhook if exists so we can use long-polling or to set new one
      * DELETE /v2/notification/callback
@@ -133,7 +134,7 @@ export const setup = async () => {
       .then(checkStatus)
       .catch(() => {});
     console.log("Deleted old webhook");
-
+    await resolveIn(5000);
     /**
      * Remove old long poll notification channel if exists so we can use webhooks instead
      * DELETE /v2/notification/callback
