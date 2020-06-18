@@ -17,6 +17,7 @@ import {
   webhookURI,
   webhookUrl,
   longPollUrl,
+  resolveIn,
 } from "./utils";
 
 console.log(`APP_HOST=${hostName}`);
@@ -118,6 +119,7 @@ export const setup = async () => {
               )
 
               console.log(`sun: ${subscriptionsUrl}/${device.id}/${resource.uri}`);
+              await resolveIn(1000);
             }
           );
       });

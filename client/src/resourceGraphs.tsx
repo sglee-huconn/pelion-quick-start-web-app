@@ -57,12 +57,14 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
           .reduce((acc, cur) => (!!cur ? cur : acc), "");
         const resourceName = matchPath && resourceNames[matchPath] ? resourceNames[matchPath] : res;
         const [val1, val2] = paths[res];
-        console.log(`${val1} ${val2} ${res} ${paths[res]}`);
+
         const styleColour =
           val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;
 
         state.title = resourceName;
         state.voltage = val1.value;
+
+        console.log(`sun: ${val1} ${val2} ${res} ${paths[res]}`);
 
         return (
           // <div className="device" key={res}>
