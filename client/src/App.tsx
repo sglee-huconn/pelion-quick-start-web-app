@@ -10,7 +10,9 @@ export const apiUrl = window.location.href;
 const PAUSE_FOR_POLL = 1000 * 5; // 5 seconds
 
 const resourceNames: Names = {
-  "/3316/0/5700": "Avg. Voltage",
+  "/3316/0/5700": "Overall Voltage(V)",
+  "/3317/0/5700": "Overall Current(A)",
+
   "/3316/1/5700": "Cell0 Voltage",
   "/3316/2/5700": "Cell1 Voltage",
   "/3316/3/5700": "Cell2 Voltage",
@@ -20,8 +22,77 @@ const resourceNames: Names = {
   "/3316/7/5700": "Cell6 Voltage",
   "/3316/8/5700": "Cell7 Voltage",
   "/3316/9/5700": "Cell8 Voltage",
-  "/3316/10/5700": "Cell9 Voltage",
+  "/3316/10/5700": "Cell9 Voltage",  
+
+  "/3331/0/10000": "remain capacity(%)",
+  "/3331/0/10001": "battery physical capacity(Ah)",
+  "/3331/0/10002": "battery remain capacity(Ah)",
+  "/3331/0/10003": "battery cycle capacity(Ah)",
+  "/3331/0/10004": "current power(W)",
+
+  "/3316/1024/5700": "cell average voltage(V)",
+  "/3316/1024/5601": "cell lowest voltage(V)",
+  "/3316/1024/5602": "cell highest voltage(V)",
+  "/3316/1024/10001": "cell number lowest voltage",
+  "/3316/1024/10002": "cell number highest voltage",
+
+  "/3303/0/5700": "temperature(MOS)",
+  "/3303/1/5700": "temperature(balance)",
+  "/3303/2/5700": "temperature(T1)",
+  "/3303/3/5700": "temperature(T2)",
+  "/3303/4/5700": "temperature(T3)",
+  "/3303/5/5700": "temperature(T4)",
+
+  "/3336/0/10000": "GPS locked",
+  "/3336/0/5514": "latitude",
+  "/3336/0/5515": "longitude"
 };
+
+const resourceNames0: Names = {
+  "/3316/0/5700": "Overall Voltage(V)",
+  "/3317/0/5700": "Overall Current(A)"
+}
+const resourceNames1: Names = {
+  "/3316/1/5700": "Cell0 Voltage",
+  "/3316/2/5700": "Cell1 Voltage",
+  "/3316/3/5700": "Cell2 Voltage",
+  "/3316/4/5700": "Cell3 Voltage",
+  "/3316/5/5700": "Cell4 Voltage",
+  "/3316/6/5700": "Cell5 Voltage",
+  "/3316/7/5700": "Cell6 Voltage",
+  "/3316/8/5700": "Cell7 Voltage",
+  "/3316/9/5700": "Cell8 Voltage",
+  "/3316/10/5700": "Cell9 Voltage"
+}
+
+const resourceNames2: Names = {
+  "/3331/0/10000": "remain capacity(%)",
+  "/3331/0/10001": "battery physical capacity(Ah)",
+  "/3331/0/10002": "battery remain capacity(Ah)",
+  "/3331/0/10003": "battery cycle capacity(Ah)",
+  "/3331/0/10004": "current power(W)",
+
+  "/3316/1024/5700": "cell average voltage(V)",
+  "/3316/1024/5601": "cell lowest voltage(V)",
+  "/3316/1024/5602": "cell highest voltage(V)",
+  "/3316/1024/10001": "cell number lowest voltage",
+  "/3316/1024/10002": "cell number highest voltage",
+}
+
+const resourceNames3: Names = {
+  "/3303/0/5700": "temperature(MOS)",
+  "/3303/1/5700": "temperature(balance)",
+  "/3303/2/5700": "temperature(T1)",
+  "/3303/3/5700": "temperature(T2)",
+  "/3303/4/5700": "temperature(T3)",
+  "/3303/5/5700": "temperature(T4)",
+}
+
+const resourceNames4: Names = {
+  "/3336/0/10000": "GPS locked",
+  "/3336/0/5514": "latitude",
+  "/3336/0/5515": "longitude"
+}
 
 const App: React.FC = () => {
   const [values, setValues] = useState<ResourceValue[]>([]);
