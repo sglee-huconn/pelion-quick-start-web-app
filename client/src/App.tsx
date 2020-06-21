@@ -48,11 +48,15 @@ const resourceNames: Names = {
   "/3336/0/5515": "longitude"
 };
 
-const resourceNames0: Names = {
+const resNameOverallVoltage: Names = {
   "/3316/0/5700": "Overall Voltage(V)",
+}
+
+const resNameOverallCurrent: Names = {
   "/3317/0/5700": "Overall Current(A)"
 }
-const resourceNames1: Names = {
+
+const resNameCellVoltages: Names = {
   "/3316/1/5700": "Cell0 Voltage",
   "/3316/2/5700": "Cell1 Voltage",
   "/3316/3/5700": "Cell2 Voltage",
@@ -65,7 +69,7 @@ const resourceNames1: Names = {
   "/3316/10/5700": "Cell9 Voltage"
 }
 
-const resourceNames2: Names = {
+const resNameEtc: Names = {
   "/3331/0/10000": "remain capacity(%)",
   "/3331/0/10001": "battery physical capacity(Ah)",
   "/3331/0/10002": "battery remain capacity(Ah)",
@@ -79,7 +83,7 @@ const resourceNames2: Names = {
   "/3316/1024/10002": "cell number highest voltage",
 }
 
-const resourceNames3: Names = {
+const resNameTemp: Names = {
   "/3303/0/5700": "temperature(MOS)",
   "/3303/1/5700": "temperature(balance)",
   "/3303/2/5700": "temperature(T1)",
@@ -88,7 +92,7 @@ const resourceNames3: Names = {
   "/3303/5/5700": "temperature(T4)",
 }
 
-const resourceNames4: Names = {
+const resNamesGPS: Names = {
   "/3336/0/10000": "GPS locked",
   "/3336/0/5514": "latitude",
   "/3336/0/5515": "longitude"
@@ -162,11 +166,32 @@ const App: React.FC = () => {
       </header>
       <article className="App-article">
         <DeviceList deviceInfo={deviceInfo} />
-        <hr /> <br />
+        <hr />
+        <h1>Overall Voltage</h1>
         <div className="App-graph-grid">
+          <!--           
           {values.length === 0 && deviceInfo.length === 0 && <h1 className="noData">No data available</h1>}
-          <ResourceGraphs devices={devices} resourceNames={resourceNames} deviceNames={deviceNames} />
+          <ResourceGraphs devices={devices} resourceNames={resourceNames} deviceNames={deviceNames} /> 
+          sss
+          -->
+          <ResourceGraphs devices={devices} resourceNames={resNameOverallVoltage} deviceNames={deviceNames} /> 
         </div>
+        <hr />
+        <h1>Overall Current</h1>
+        <ResourceGraphs devices={devices} resourceNames={resNameOverallCurrent} deviceNames={deviceNames} /> 
+        <hr />
+        <h1>Cell Voltages</h1>
+        <ResourceGraphs devices={devices} resourceNames={resNameCellVoltages} deviceNames={deviceNames} /> 
+        <hr />
+        <h1>Info.</h1>
+        <ResourceGraphs devices={devices} resourceNames={resNameEtc} deviceNames={deviceNames} />         
+        <hr />
+        <h1>Temperatures</h1>
+        <ResourceGraphs devices={devices} resourceNames={resNameTemp} deviceNames={deviceNames} /> 
+        <hr />
+        <h1>GPS</h1>        
+        <ResourceGraphs devices={devices} resourceNames={resNamesGPS} deviceNames={deviceNames} /> 
+        <hr />
       </article>
     </div>
   );
