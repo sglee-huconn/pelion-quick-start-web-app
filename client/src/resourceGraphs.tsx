@@ -67,6 +67,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     //     console.log(`sun: ${val1} ${val2} ${res} ${paths[res]}`);
     Object.keys(resourceNames)
       .map(res => {
+        console.log('resource: ' + res);
         const resourceName = resourceNames[res];
 
         if (paths[res] === undefined) {
@@ -143,8 +144,8 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     Object.keys(d)
       .sort((a, b) => a.localeCompare(b))
       .map(res => {
-        console.log(d[res] + ' ' + res)
-        showDevice(d[res], res)
+        console.log('Device drawing' + d[res] + ' ' + res);
+        showDevice(d[res], res);
       });
 
   return <React.Fragment>{showDevices(devices)}</React.Fragment>;
