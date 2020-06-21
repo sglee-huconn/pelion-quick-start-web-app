@@ -174,22 +174,6 @@ const App: React.FC = () => {
           {values.length === 0 && deviceInfo.length === 0 && <h1 className="noData">No data available</h1>}
           <ResourceGraphs devices={devices} resourceNames={resNameOverallVoltage} deviceNames={deviceNames} /> 
         </div>
-        <hr />
-        <h1>Overall Current</h1>
-        <ResourceGraphs devices={devices} resourceNames={resNameOverallCurrent} deviceNames={deviceNames} /> 
-        <hr />
-        <h1>Cell Voltages</h1>
-        <ResourceGraphs devices={devices} resourceNames={resNameCellVoltages} deviceNames={deviceNames} /> 
-        <hr />
-        <h1>Info.</h1>
-        <ResourceGraphs devices={devices} resourceNames={resNameEtc} deviceNames={deviceNames} />         
-        <hr />
-        <h1>Temperatures</h1>
-        <ResourceGraphs devices={devices} resourceNames={resNameTemp} deviceNames={deviceNames} /> 
-        <hr />
-        <h1>GPS</h1>        
-        <ResourceGraphs devices={devices} resourceNames={resNamesGPS} deviceNames={deviceNames} /> 
-        <hr />
       </article>
     </div>
   );
