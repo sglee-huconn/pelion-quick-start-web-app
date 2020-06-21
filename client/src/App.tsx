@@ -172,7 +172,7 @@ const App: React.FC = () => {
         <h1>Overall Voltage</h1>
         <div className="App-graph-grid">        
           {values.length === 0 && deviceInfo.length === 0 && <h1 className="noData">No data available</h1>}
-          <ResourceGraphs devices={devices} resourceNames={resNameOverallVoltage} deviceNames={deviceNames} /> 
+          <ResourceGraphs devices={devices} resourceNames={resourceNames} deviceNames={deviceNames} /> 
         </div>
       </article>
     </div>
