@@ -166,34 +166,10 @@ const App: React.FC = () => {
       </header>
       <article className="App-article">
         <DeviceList deviceInfo={deviceInfo} />
-        <hr />
-        value: {values.length}
-        <br />
-        deviceInfo: {deviceInfo.length}
-        <br />
-        {Object.keys(resNameOverallVoltage).length}
-        <br />
-        {Object.keys(devices).length}
-        <br />
+        <hr /> <br />
         <div className="App-graph-grid">        
           <ResourceGraphs devices={devices} resourceNames={resNameOverallVoltage} deviceNames={deviceNames} /> 
         </div>
-        <hr />
-        <div><h1>Overall Current</h1></div>
-        <ResourceGraphs devices={devices} resourceNames={resNameOverallCurrent} deviceNames={deviceNames} /> 
-        <hr />
-        <div><h1>Cell Voltages</h1></div>
-        <ResourceGraphs devices={devices} resourceNames={resNameCellVoltages} deviceNames={deviceNames} /> 
-        <hr />
-        <div><h1>Info.</h1></div>
-        <ResourceGraphs devices={devices} resourceNames={resNameEtc} deviceNames={deviceNames} />         
-        <hr />
-        <div><h1>Temperatures</h1></div>
-        <ResourceGraphs devices={devices} resourceNames={resNameTemp} deviceNames={deviceNames} /> 
-        <hr />
-        <div><h1>GPS</h1></div>        
-        <ResourceGraphs devices={devices} resourceNames={resNamesGPS} deviceNames={deviceNames} /> 
-        <hr />
       </article>
     </div>
   );

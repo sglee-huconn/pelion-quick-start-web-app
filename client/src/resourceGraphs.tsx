@@ -45,7 +45,7 @@ const getData = () => {
 }
 
 const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resourceNames }) => {
-  const showDevice = (paths: Paths, deviceId: string) => {
+  const showDevice = (paths: Paths, deviceId: string) => 
     // Object.keys(paths)
     //   .sort((a, b) => a.localeCompare(b))
     //   .map(res => {
@@ -139,8 +139,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
   //     </ResponsiveContainer>
   //   );
   // };
-  }
-  
+
   const showDevices = (d: Devices) =>
     Object.keys(d)
       .sort((a, b) => a.localeCompare(b))
