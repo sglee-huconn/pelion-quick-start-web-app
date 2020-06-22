@@ -95,7 +95,6 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
           //     </div>
           //   </div>
           // </div>
-
           <div className="device" key={res}>
             <div className="App-graph">
               <div className="VoltageGauge">
@@ -139,10 +138,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
   const showDevices = (d: Devices, r: Names) => 
     Object.keys(d)
     .sort((a, b) => a.localeCompare(b))
-    .map(res => {
-      //console.log('Device drawing' + d[res] + ' ' + res);
-      showDevice(d[res], res, r);
-    });
+    .map(res => showDevice(d[res], res, r));
 
   return <React.Fragment>{showDevices(devices, resourceNames)}</React.Fragment>;
 };
