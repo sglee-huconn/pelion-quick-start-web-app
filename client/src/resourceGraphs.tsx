@@ -176,16 +176,28 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
   };
 
   const showDevices1 = (d:Devices) => {
-    if (Object.keys(d).length === 0)
-      return (
-        <div><h1>HOHOHO1</h1></div>
-        );
-    else {
-    Object.keys(d)
+    Object.keys(resourceNames)
       .map(res => {
-        showDevice1(d[res], res);
-      });
-    }
+        console.log('resource: ' + res);
+        const resourceName = resourceNames[res];
+
+        return (
+          <div className="device" key={res}>
+            <div className="App-graph">
+              <div className="VoltageGauge">
+                <Chart
+                  chartType = "Gauge"
+                  width="100%"
+                  height="400px"
+                  data={getData()}
+                  options={options}
+                />
+              </div>
+            </div>
+          </div>          
+
+        );
+      });        
   }
 
   return <React.Fragment>{showDevices1(devices)}</React.Fragment>;
