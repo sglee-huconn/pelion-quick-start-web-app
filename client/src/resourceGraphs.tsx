@@ -157,10 +157,16 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     });
 
   const showDevices1 = (d:Devices) => {
+    if (Object.keys(d).length === 0)
+      return (
+        <div><h1>HOHOHO1</h1></div>
+        );
+    else {
     Object.keys(d)
       .map(res => {
         showDevice1(d[res], res);
       });
+    }
   }
 
   return <React.Fragment>{showDevices1(devices)}</React.Fragment>;
