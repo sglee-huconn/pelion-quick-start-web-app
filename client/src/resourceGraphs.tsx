@@ -152,9 +152,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     Object.keys(d)
       .sort((a,b) => a.localeCompare(b))
       .map(res => {
-        return (
-          <div><h1>HOHOHO1</h1></div>
-        );
+        (<div><h1>HOHOHO1</h1></div>);
       });
   }
 
