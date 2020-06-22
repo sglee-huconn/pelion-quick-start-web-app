@@ -176,6 +176,8 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
   };
 
   const showDevices1 = () => {
+    Object.keys(resourceNames)
+    .map(res => {
         return (
           <div className="device">
             <div className="App-graph">
@@ -187,14 +189,11 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
                   data={getData()}
                   options={options}
                 />
-                <br />
-                {Object.keys(resourceNames).length}
-                <br />
-                {Object.keys(resourceNames)[0]}
               </div>
             </div>
           </div>          
-        );    
+        );        
+    });
   }
 
   return <React.Fragment>{showDevices1()}</React.Fragment>;
