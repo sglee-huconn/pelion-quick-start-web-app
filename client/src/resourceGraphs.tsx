@@ -45,7 +45,7 @@ const getData = () => {
 }
 
 const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resourceNames }) => {
-  const showDevice = (paths: Paths, deviceId: string) => 
+  const showDevice = (paths: Paths, deviceId: string, resNames: Names) => 
     // Object.keys(paths)
     //   .sort((a, b) => a.localeCompare(b))
     //   .map(res => {
@@ -65,23 +65,19 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     //     state.voltage = val1.value;
 
     //     console.log(`sun: ${val1} ${val2} ${res} ${paths[res]}`);
-    Object.keys(resourceNames)
+    Object.keys(resNames)
       .map(res => {
-        console.log('resource: ' + res);
-        const resourceName = resourceNames[res];
-
         if (paths[res] === undefined) {
-          state.title = resourceName;
+          state.title = res;
           state.voltage = 0.0;
         }
         else {
-
           const [val1, val2] = paths[res];
 
           const styleColour =
             val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;
 
-          state.title = resourceName
+          state.title = res
           state.voltage = val1.value;
         }
 
@@ -175,27 +171,15 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     }
   };
 
-  const showDevices1 = () => 
-    Object.keys(resourceNames)
+  const showDevices1 = (d: Devices, r: Names) => 
+    Object.keys(d)
+    .sort((a, b) => a.localeCompare(b))
     .map(res => {
-        return (
-          <div className="device">
-            <div className="App-graph">
-              <div className="VoltageGauge">
-                <Chart
-                  chartType = "Gauge"
-                  width="100%"
-                  height="400px"
-                  data={getData()}
-                  options={options}
-                />
-              </div>
-            </div>
-          </div>          
-        );        
+      //console.log('Device drawing' + d[res] + ' ' + res);
+      showDevice(d[res], res, r);
     });
 
-  return <React.Fragment>{showDevices1()}</React.Fragment>;
+  return <React.Fragment>{showDevices1(devices, resourceNames)}</React.Fragment>;
 };
 
 export default ResourceGraphs;
