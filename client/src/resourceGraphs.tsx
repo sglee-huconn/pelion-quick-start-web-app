@@ -151,13 +151,25 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
   const showDevice1 = (paths: Paths, deviceId: string) => {
     if (Object.keys(paths).length === 0)
       return (
-        <div><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h1>HOHOHO2</h1></div>
+        <div><h1>HOHOHO2</h1></div>
         );
     else {
       Object.keys(paths)
       .map(res => {
         return (
-          <div><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h1>HOHOHO3</h1></div>
+          <div className="device" key={res}>
+            <div className="App-graph">
+              <div className="VoltageGauge">
+                <Chart
+                  chartType = "Gauge"
+                  width="100%"
+                  height="400px"
+                  data={getData()}
+                  options={options}
+                />
+              </div>
+            </div>
+          </div> 
         );
       });
     }
