@@ -162,10 +162,9 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
         <div><h1>HOHOHO1</h1></div>
         );
     else {
-    Object.keys(d)
-      .map(res => {
-        showDevice1(d[res], res);
-      });
+      return (
+        <div><h1>HOHOHO2</h1></div>
+        );
     }
   }
 
