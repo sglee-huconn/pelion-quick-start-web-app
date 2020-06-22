@@ -171,6 +171,9 @@ const App: React.FC = () => {
         <br />
         deviceInfo: {deviceInfo.length}
         <br />
+        {resNameOverallVoltage.length}
+        <br />
+        <br />
         {console.log(Object.keys(devices))}
         <br />
         <div> <h1>Overall Voltage</h1> </div>
