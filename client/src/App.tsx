@@ -167,7 +167,8 @@ const App: React.FC = () => {
       <article className="App-article">
         <DeviceList deviceInfo={deviceInfo} />
         <hr /> <br />
-        <div className="App-graph-grid">        
+        <div className="App-graph-grid">     
+        {values.length === 0 && deviceInfo.length === 0 && <h1 className="noData">No data available</h1>}   
           <ResourceGraphs devices={devices} resourceNames={resNameOverallVoltage} deviceNames={deviceNames} /> 
         </div>
       </article>
