@@ -136,42 +136,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
   //   );
   // };
 
-  const showDevices = (d: Devices) =>
-    Object.keys(d)
-      .sort((a, b) => a.localeCompare(b))
-      .map(res => {
-        //console.log('Device drawing' + d[res] + ' ' + res);
-        showDevice(d[res], res);
-      });
-
-  const showDevice1 = (paths: Paths, deviceId: string) => {
-    if (Object.keys(paths).length === 0)
-      return (
-        <div><h1>HOHOHO2</h1></div>
-        );
-    else {
-      Object.keys(paths)
-      .map(res => {
-        return (
-          <div className="device" key={res}>
-            <div className="App-graph">
-              <div className="VoltageGauge">
-                <Chart
-                  chartType = "Gauge"
-                  width="100%"
-                  height="400px"
-                  data={getData()}
-                  options={options}
-                />
-              </div>
-            </div>
-          </div> 
-        );
-      });
-    }
-  };
-
-  const showDevices1 = (d: Devices, r: Names) => 
+  const showDevices = (d: Devices, r: Names) => 
     Object.keys(d)
     .sort((a, b) => a.localeCompare(b))
     .map(res => {
@@ -179,7 +144,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
       showDevice(d[res], res, r);
     });
 
-  return <React.Fragment>{showDevices1(devices, resourceNames)}</React.Fragment>;
+  return <React.Fragment>{showDevices(devices, resourceNames)}</React.Fragment>;
 };
 
 export default ResourceGraphs;
