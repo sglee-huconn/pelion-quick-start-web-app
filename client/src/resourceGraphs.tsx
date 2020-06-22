@@ -149,7 +149,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
       });
 
   const showDevice1 = (paths: Paths, deviceId: string) => {
-    if (Object.keys(paths) === 0)
+    if (Object.keys(paths).length === 0)
       return (
         <div><h1>HOHOHO2</h1></div>
         );    
