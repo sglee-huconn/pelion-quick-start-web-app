@@ -67,6 +67,8 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     //     console.log(`sun: ${val1} ${val2} ${res} ${paths[res]}`);
     Object.keys(resNames)
       .map(res => {
+        const resourceName = resNames[res];
+        
         if (paths[res] === undefined) {
           state.title = res;
           state.voltage = 0.0;
