@@ -187,6 +187,10 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
                   data={getData()}
                   options={options}
                 />
+                <br />
+                {Object.keys(resourceNames).length}
+                <br />
+                {Object.keys(resourceNames)[0]}
               </div>
             </div>
           </div>          
