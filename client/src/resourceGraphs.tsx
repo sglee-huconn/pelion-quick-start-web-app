@@ -175,7 +175,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     }
   };
 
-  const showDevices1 = (r: resourceNames) => {
+  const showDevices1 = (r: Names) => {
     Object.keys(r)
     .map(res => {
         return (
