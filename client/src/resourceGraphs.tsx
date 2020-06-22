@@ -175,8 +175,8 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     }
   };
 
-  const showDevices1 = (r: Names) => 
-    Object.keys(r)
+  const showDevices1 = () => 
+    Object.keys(resourceNames)
     .map(res => {
         return (
           <div className="device">
@@ -195,7 +195,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
         );        
     });
 
-  return <React.Fragment>{showDevices1(resourceNames)}</React.Fragment>;
+  return <React.Fragment>{showDevices1()}</React.Fragment>;
 };
 
 export default ResourceGraphs;
