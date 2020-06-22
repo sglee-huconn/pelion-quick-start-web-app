@@ -148,7 +148,13 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
         showDevice(d[res], res);
       });
 
-  return <React.Fragment>{showDevices(devices)}</React.Fragment>;
+  const showDevices1 = (d:Devices) => {
+    return (
+      <div><h1>HOHOHO</h1></div>
+    );
+  }
+
+  return <React.Fragment>{showDevices1(devices)}</React.Fragment>;
 };
 
 export default ResourceGraphs;
