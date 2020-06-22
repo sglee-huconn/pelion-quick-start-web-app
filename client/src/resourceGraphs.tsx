@@ -46,44 +46,44 @@ const getData = () => {
 
 const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resourceNames }) => {
   const showDevice = (paths: Paths, deviceId: string) => 
-    Object.keys(paths)
-      .sort((a, b) => a.localeCompare(b))
-      .map(res => {
-        const deviceName = deviceNames[deviceId]
-          ? deviceNames[deviceId]
-          : `${deviceId.slice(0, 6)}...${deviceId.slice(-6)}`;
-        const matchPath = Object.keys(resourceNames)
-          .map(e => (res.match(e) ? e : false))
-          .reduce((acc, cur) => (!!cur ? cur : acc), "");
-        const resourceName = matchPath && resourceNames[matchPath] ? resourceNames[matchPath] : res;
-        const [val1, val2] = paths[res];
-
-        const styleColour =
-          val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;
-
-        state.title = resourceName;
-        state.voltage = val1.value;
-
-        console.log(`sun: ${val1} ${val2} ${res} ${paths[res]}`);
-    // Object.keys(resourceNames)
+    // Object.keys(paths)
+    //   .sort((a, b) => a.localeCompare(b))
     //   .map(res => {
-    //     console.log('resource: ' + res);
-    //     const resourceName = resourceNames[res];
+    //     const deviceName = deviceNames[deviceId]
+    //       ? deviceNames[deviceId]
+    //       : `${deviceId.slice(0, 6)}...${deviceId.slice(-6)}`;
+    //     const matchPath = Object.keys(resourceNames)
+    //       .map(e => (res.match(e) ? e : false))
+    //       .reduce((acc, cur) => (!!cur ? cur : acc), "");
+    //     const resourceName = matchPath && resourceNames[matchPath] ? resourceNames[matchPath] : res;
+    //     const [val1, val2] = paths[res];
 
-    //     if (paths[res] === undefined) {
-    //       state.title = resourceName;
-    //       state.voltage = 0.0;
-    //     }
-    //     else {
+    //     const styleColour =
+    //       val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;
 
-    //       const [val1, val2] = paths[res];
+    //     state.title = resourceName;
+    //     state.voltage = val1.value;
 
-    //       const styleColour =
-    //         val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;
+    //     console.log(`sun: ${val1} ${val2} ${res} ${paths[res]}`);
+    Object.keys(resourceNames)
+      .map(res => {
+        console.log('resource: ' + res);
+        const resourceName = resourceNames[res];
 
-    //       state.title = resourceName
-    //       state.voltage = val1.value;
-    //     }
+        if (paths[res] === undefined) {
+          state.title = resourceName;
+          state.voltage = 0.0;
+        }
+        else {
+
+          const [val1, val2] = paths[res];
+
+          const styleColour =
+            val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;
+
+          state.title = resourceName
+          state.voltage = val1.value;
+        }
 
         return (
           // <div className="device" key={res}>
@@ -175,7 +175,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     }
   };
 
-  const showDevices1 = (r: Names) => {
+  const showDevices1 = (r: Names) => 
     Object.keys(r)
     .map(res => {
         return (
@@ -194,9 +194,8 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
           </div>          
         );        
     });
-  }
 
-  return <React.Fragment>{showDevices(devices)}</React.Fragment>;
+  return <React.Fragment>{showDevices1(resourceNames)}</React.Fragment>;
 };
 
 export default ResourceGraphs;
