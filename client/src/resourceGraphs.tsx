@@ -177,7 +177,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
 
   const showDevices1 = () => {
         return (
-          <div className="device" key={res}>
+          <div className="device">
             <div className="App-graph">
               <div className="VoltageGauge">
                 <Chart
