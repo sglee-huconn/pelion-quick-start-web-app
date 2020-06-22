@@ -173,6 +173,7 @@ const App: React.FC = () => {
         <br />
         {Object.keys(resNameOverallVoltage).length}
         <br />
+        {Object.keys(devices).length}
         <br />
         <div className="App-graph-grid">        
           <ResourceGraphs devices={devices} resourceNames={resNameOverallVoltage} deviceNames={deviceNames} /> 
