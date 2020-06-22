@@ -148,10 +148,14 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
         showDevice(d[res], res);
       });
 
+  const showDevice = (paths: Paths, deviceId: string) => {
+    return (<div><h1>HOHOHO1</h1></div>);
+  }
+
   const showDevices1 = (d:Devices) => {
     Object.keys(d)
       .map(res => {
-        <div><h1>HOHOHO1</h1></div>;
+        showDevice(d[res], res);
       });
   }
 
