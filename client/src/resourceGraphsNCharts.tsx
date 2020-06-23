@@ -44,7 +44,7 @@ const getData = () => {
   ]
 }
 
-const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resourceNames }) => {
+const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, resourceNames }) => {
   const showDevice = (paths: Paths, deviceId: string, resNames: Names) => 
     // Object.keys(paths)
     //   .sort((a, b) => a.localeCompare(b))
@@ -146,4 +146,4 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
   return <React.Fragment>{showDevices(devices, resourceNames)}</React.Fragment>;
 };
 
-export default ResourceGraphs;
+export default ResourceGraphsNCharts;

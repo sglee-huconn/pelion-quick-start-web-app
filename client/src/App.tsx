@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import superagent from "superagent";
 import { DeviceInfo, DeviceResource, Devices, Names, ResourceValue } from ".";
 import DeviceList from "./deviceList";
+import ResourceGraphsNCharts from "./resourceGraphsNCharts";
+import ResourceCharts from "./resourceCharts";
 import ResourceGraphs from "./resourceGraphs";
+import ResourceBmsInfoEtc from "./resourceBmsInfoEtc";
+import ResourceGps from "./resourceGps";
 import Toolbar from "./toolbar";
 
 export const apiUrl = window.location.href;
@@ -169,29 +173,29 @@ const App: React.FC = () => {
         <hr /> <br />
         <div><h1>Overall Voltage</h1></div>
         <div className="App-graph-grid">     
-          <ResourceGraphs devices={devices} resourceNames={resNameOverallVoltage} deviceNames={deviceNames} /> 
+          <ResourceGraphsNCharts devices={devices} resourceNames={resNameOverallVoltage} deviceNames={deviceNames} /> 
         </div>
         <hr />
         <div><h1>Overall Current</h1></div>
         <div className="App-graph-grid">
-          <ResourceGraphs devices={devices} resourceNames={resNameOverallCurrent} deviceNames={deviceNames} /> 
+          <ResourceGraphsNCharts devices={devices} resourceNames={resNameOverallCurrent} deviceNames={deviceNames} /> 
         </div>
         <hr />
         <div><h1>Cell Voltages</h1></div>
         <div className="App-graph-grid">
-          <ResourceGraphs devices={devices} resourceNames={resNameCellVoltages} deviceNames={deviceNames} /> 
+          <ResourceCharts devices={devices} resourceNames={resNameCellVoltages} deviceNames={deviceNames} /> 
         </div>
-        <hr />
-        <div><h1>Info.</h1></div>
-          <ResourceGraphs devices={devices} resourceNames={resNameEtc} deviceNames={deviceNames} />         
         <hr />
         <div><h1>Temperatures</h1></div>
         <div className="App-graph-grid">
           <ResourceGraphs devices={devices} resourceNames={resNameTemp} deviceNames={deviceNames} /> 
         </div>
+        <hr />        
+        <div><h1>Info.</h1></div>
+        <ResourceBmsInfoEtc devices={devices} resourceNames={resNameEtc} deviceNames={deviceNames} />         
         <hr />
         <div><h1>GPS</h1></div>        
-          <ResourceGraphs devices={devices} resourceNames={resNamesGPS} deviceNames={deviceNames} /> 
+        <ResourceGps devices={devices} resourceNames={resNamesGPS} deviceNames={deviceNames} /> 
         <hr />        
       </article>
     </div>
