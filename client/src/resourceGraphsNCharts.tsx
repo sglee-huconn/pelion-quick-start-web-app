@@ -91,9 +91,6 @@ const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, r
 
         return (
           <div className="device" key={res}>
-            <h3 title={deviceId}>
-              {resourceName}
-            </h3>
             <div className="App-graph">
               <div className="Gauge">
                 <Chart chartType = "Gauge" width="100%" height="200px" data={getData()} options={options} />
