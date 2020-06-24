@@ -17,7 +17,7 @@ interface ToolbarProps {
 }
 
 const options = {
-  width: 400,
+  width: 120,
   height: 120,
   yellowFrom: 4.0,
   yellowTo: 4.5,
@@ -74,7 +74,7 @@ const ResourceCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
               <Chart
                 chartType = "Gauge"
                 width="100%"
-                height="400px"
+                height="120px"
                 data={getData()}
                 options={options}
               />

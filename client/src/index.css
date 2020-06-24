@@ -29,8 +29,8 @@ body {
 }
 .App-graph-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
-  gap: 10px 10px;
+  grid-template-columns: repeat(auto-fit, minmax(5px, 1fr));
+  gap: 5px 5px;
 }
 .device-list {
   width: 100%;
