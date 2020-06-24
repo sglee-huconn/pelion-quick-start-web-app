@@ -18,7 +18,7 @@ interface ToolbarProps {
 
 const options = {
   width: 400,
-  height: 400,
+  height: 120,
   yellowFrom: 40.0,
   yellowTo: 50.0,
   redFrom: 50.0,
@@ -112,7 +112,7 @@ const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, r
     const min = Math.floor(values.reduce((a, c) => (c.value < a ? c.value : a), Infinity));
     const margin = Math.ceil((max - min) * 0.1);
     return (
-      <ResponsiveContainer aspect={16 / 9} minHeight={150} maxHeight={400}>
+      <ResponsiveContainer aspect={16 / 9} minHeight={150}>
         <LineChart data={values}>
           <Line dot={false} type="monotone" dataKey="value" animationEasing="linear" stroke={TOPAZ} strokeWidth="3px" />
           <XAxis
