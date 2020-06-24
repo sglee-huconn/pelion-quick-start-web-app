@@ -104,12 +104,6 @@ const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, r
               </div>
             </div>
           </div>
-          <div className="device" key={res}>
-            <div className="App-graph">
-
-            </div>
-          </div>          
-
         );
       });
 

@@ -38,54 +38,44 @@ const ResourceBmsInfoEtc: React.FunctionComponent<ToolbarProps> = ({ devices, de
     let cellNumberHighestVoltage: string = 'no data';    
 
     if (paths[remainCapacityPath] !== undefined) {
-      const [val1, val2] = paths[remainCapacityPath];
-      remainCapacity = val1.value.toString();     
+      remainCapacity = paths[remainCapacityPath][0].value.toString();     
     }
 
     if (paths[battPhysicalCapacityPath] !== undefined) {
-      const [val1, val2] = paths[battPhysicalCapacityPath];
-      battPhysicalCapacity = val1.value.toString();     
+      battPhysicalCapacity = paths[battPhysicalCapacityPath][0].value.toString();     
     }  
 
     if (paths[batteryRemainCapacityPath] !== undefined) {
-      const [val1, val2] = paths[batteryRemainCapacityPath];
-      batteryRemainCapacity = val1.value.toString();     
+      batteryRemainCapacity = paths[batteryRemainCapacityPath][0].value.toString();     
     }      
 
     if (paths[batteryCycleCapacityPath] !== undefined) {
-      const [val1, val2] = paths[batteryCycleCapacityPath];
-      batteryCycleCapacity = val1.value.toString();     
+      batteryCycleCapacity = paths[batteryCycleCapacityPath][0].value.toString();     
     }         
     
     if (paths[currentPowerPath] !== undefined) {
-      const [val1, val2] = paths[currentPowerPath];
-      currentPower = val1.value.toString();     
+      currentPower = paths[currentPowerPath][0].value.toString();     
     }          
 
 
     if (paths[cellAverageVoltagePath] !== undefined) {
-      const [val1, val2] = paths[cellAverageVoltagePath];
-      cellAverageVoltage = val1.value.toString();     
+      cellAverageVoltage = paths[cellAverageVoltagePath][0].value.toString();     
     }
 
     if (paths[cellLowestVoltagePath] !== undefined) {
-      const [val1, val2] = paths[cellLowestVoltagePath];
-      cellLowestVoltage = val1.value.toString();     
+      cellLowestVoltage = paths[cellLowestVoltagePath][0].value.toString();     
     }  
 
     if (paths[cellHighestVoltagePath] !== undefined) {
-      const [val1, val2] = paths[cellHighestVoltagePath];
-      cellHighestVoltage = val1.value.toString();     
+      cellHighestVoltage = paths[cellHighestVoltagePath][0].value.toString();     
     }      
 
     if (paths[cellNumberLowestVoltagePath] !== undefined) {
-      const [val1, val2] = paths[cellNumberLowestVoltagePath];
-      cellNumberLowestVoltage = val1.value.toString();     
+      cellNumberLowestVoltage = paths[cellNumberLowestVoltagePath][0].value.toString();     
     }         
     
     if (paths[cellNumberHighestVoltagePath] !== undefined) {
-      const [val1, val2] = paths[cellNumberHighestVoltagePath];
-      cellNumberHighestVoltage = val1.value.toString();     
+      cellNumberHighestVoltage = paths[cellNumberHighestVoltagePath][0].value.toString();     
     }              
 
     return (
@@ -106,16 +96,16 @@ const ResourceBmsInfoEtc: React.FunctionComponent<ToolbarProps> = ({ devices, de
         </thead>
         <tbody>
             <tr>
-              <td title={remainCapacity}></td>
-              <td title={battPhysicalCapacity}></td>
-              <td title={batteryRemainCapacity}></td>
-              <td title={batteryCycleCapacity}></td>
-              <td title={currentPower}></td>
-              <td title={cellAverageVoltage}></td>
-              <td title={cellLowestVoltage}></td>
-              <td title={cellHighestVoltage}></td>
-              <td title={cellNumberLowestVoltage}></td>
-              <td title={cellNumberHighestVoltage}></td>                
+              <td>{remainCapacity}</td>
+              <td>{battPhysicalCapacity}</td>
+              <td>{batteryRemainCapacity}</td>
+              <td>{batteryCycleCapacity}</td>
+              <td>{currentPower}</td>
+              <td>{cellAverageVoltage}</td>
+              <td>{cellLowestVoltage}</td>
+              <td>{cellHighestVoltage}</td>
+              <td>{cellNumberLowestVoltage}</td>
+              <td>{cellNumberHighestVoltage}</td>                
             </tr>
         </tbody>
       </table>
