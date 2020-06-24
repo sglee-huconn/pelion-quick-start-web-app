@@ -69,46 +69,44 @@ const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, r
       .map(res => {
         const resourceName = resNames[res];
 
+        const defaultResValue: ResourceValue = {
+          id: 0,
+          device_id: deviceId,
+          path: res,
+          time: new Date(),
+          value: 0,
+          epoch: 0
+        };
+
+        const [val1, val2] = (paths[res] === undefined) ? [defaultResValue, defaultResValue]: paths[res];
+
+        const styleColour =
+          val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;    
+
         state.title = resourceName;
+        state.voltage = val1.value;
 
-        if (paths[res] === undefined) {
-          
-          state.voltage = 0.0;
-        }
-        else {
-          const [val1, val2] = paths[res];
-
-          const styleColour =
-            val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;
-
-          state.voltage = val1.value;
-        }
 
         return (
-          // <div className="device" key={res}>
-          //   <h3 title={deviceId}>
-          //     {deviceName} - {resourceName}
-          //   </h3>
-          //   <div className="App-graph">
-          //     <div className="graph">{showPath(paths[res])}</div>
-          //     <div className="value">
-          //       <h1 title={moment(val1.time, "lll").toString()}>
-          //         <span style={{ color: styleColour }}>{val1.value.toFixed(1)}</span>
-          //       </h1>
-          //     </div>
-          //   </div>
-          // </div>
           <div className="device" key={res}>
+            <h3 title={deviceId}>
+              {resourceName}
+            </h3>
             <div className="App-graph">
               <div className="VoltageGauge">
-                <Chart
-                  chartType = "Gauge"
-                  width="100%"
-                  height="400px"
-                  data={getData()}
-                  options={options}
-                />
+                <Chart chartType = "Gauge" width="100%" height="400px" data={getData()} options={options} />
+              </div>              
+              <div className="graph">{(paths[res] === undefined) ? val1 : showPath(paths[res])}</div>
+              <div className="value">
+                <h1 title={moment(val1.time, "lll").toString()}>
+                  <span style={{ color: styleColour }}>{val1.value.toFixed(1)}</span>
+                </h1>
               </div>
+            </div>
+          </div>
+          <div className="device" key={res}>
+            <div className="App-graph">
+
             </div>
           </div>          
 

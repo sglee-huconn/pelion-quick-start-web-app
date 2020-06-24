@@ -50,20 +50,22 @@ const ResourceCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     .map(res => {
       const resourceName = resNames[res];
 
+      const defaultResValue: ResourceValue = {
+        id: 0,
+        device_id: deviceId,
+        path: res,
+        time: new Date(),
+        value: 0,
+        epoch: 0
+      };
+
+      const [val1, val2] = (paths[res] === undefined) ? [defaultResValue, defaultResValue]: paths[res];
+
+      const styleColour =
+        val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;    
+
       state.title = resourceName;
-
-      if (paths[res] === undefined) {
-        
-        state.voltage = 0.0;
-      }
-      else {
-        const [val1, val2] = paths[res];
-
-        const styleColour =
-          val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;
-
-        state.voltage = val1.value;
-      }
+      state.voltage = val1.value;
 
       return (
         <div className="device" key={res}>
