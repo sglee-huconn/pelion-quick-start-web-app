@@ -40,16 +40,25 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
       .map(res => {
         const resourceName = resNames[res];
 
-        const defaultResValue: ResourceValue = {
+        const defaultResValue: ResourceValue[] = [{
           id: 0,
           device_id: deviceId,
           path: res,
           time: new Date(),
           value: 0,
           epoch: 0
-        };
+        },
+        {
+          id: 0,
+          device_id: deviceId,
+          path: res,
+          time: new Date(),
+          value: 0,
+          epoch: 0
+        }        
+      ];
 
-        const [val1, val2] = (paths[res] === undefined) ? [defaultResValue, defaultResValue]: paths[res];
+        const [val1, val2] = (paths[res] === undefined) ? defaultResValue: paths[res];
 
         const styleColour =
           val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;        
@@ -60,7 +69,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
               {resourceName}
             </h3>
             <div className="App-graph">
-              <div className="graph">{(paths[res] === undefined) ? val1 : showPath(paths[res])}</div>
+              <div className="graph">{(paths[res] === undefined) ? showPath(defaultResValue) : showPath(paths[res])}</div>
               <div className="value">
                 <h1 title={moment(val1.time, "lll").toString()}>
                   <span style={{ color: styleColour }}>{val1.value.toFixed(1)}</span>
