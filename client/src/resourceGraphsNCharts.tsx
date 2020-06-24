@@ -17,8 +17,8 @@ interface ToolbarProps {
 }
 
 const options = {
-  width: 400,
-  height: 120,
+  width: 1000,
+  height: 1000,
   yellowFrom: 40.0,
   yellowTo: 50.0,
   redFrom: 50.0,
@@ -95,7 +95,7 @@ const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, r
             </h3>
             <div className="App-graph">
               <div className="Gauge">
-                <Chart chartType = "Gauge" width="100%" height="400px" data={getData()} options={options} />
+                <Chart chartType = "Gauge" width="100%" height="1000px" data={getData()} options={options} />
               </div>              
               <div className="graph">{(paths[res] === undefined) ? showPath(defaultResValue) : showPath(paths[res])}</div>
               <div className="value">
