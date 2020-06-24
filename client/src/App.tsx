@@ -162,15 +162,8 @@ const App: React.FC = () => {
     devices[v.device_id][v.path].push(v);
     return v;
   });
-  /*         <DeviceList deviceInfo={deviceInfo} /> */
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Toolbar deviceInfo={deviceInfo} getValues={getValues} />
-      </header>
-      <article className="App-article">
-        <DeviceList deviceInfo={deviceInfo} />
-        <hr />
+  /*         <DeviceList deviceInfo={deviceInfo} /> 
+          <hr />
         <div><h1>Overall Voltage</h1></div>
         <div className="App-graph-grid">     
           <ResourceGraphsNCharts devices={devices} resourceNames={resNameOverallVoltage} deviceNames={deviceNames} /> 
@@ -180,6 +173,16 @@ const App: React.FC = () => {
         <div className="App-graph-grid">
           <ResourceGraphsNCharts devices={devices} resourceNames={resNameOverallCurrent} deviceNames={deviceNames} /> 
         </div>
+  
+  */
+  return (
+    <div className="App">
+      <header className="App-header">
+        <Toolbar deviceInfo={deviceInfo} getValues={getValues} />
+      </header>
+      <article className="App-article">
+        <DeviceList deviceInfo={deviceInfo} />
+
         <hr />
         <div><h1>Cell Voltages</h1></div>
         <div className="App-graph-grid">
