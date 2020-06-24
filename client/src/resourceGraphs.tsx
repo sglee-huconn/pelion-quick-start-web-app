@@ -15,18 +15,6 @@ interface ToolbarProps {
   deviceNames: Names;
 }
 
-const options = {
-  width: 400,
-  height: 120,
-  yellowFrom: 2.0,
-  yellowTo: 3.0,
-  redFrom: 4.0,
-  redTo:5.0,
-  min: 2.0,
-  max: 5.0,
-  minorTicks: 0.1
-}
-
 const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resourceNames }) => {
   const showDevice = (paths: Paths, deviceId: string, resNames: Names) => 
     // Object.keys(paths)
@@ -89,7 +77,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     const margin = Math.ceil((max - min) * 0.1);
 
     return (
-      <ResponsiveContainer aspect={16 / 9} minHeight={150} maxHeight={300}>
+      <ResponsiveContainer aspect={16 / 9} minHeight={150} maxHeight={150}>
         <LineChart data={values}>
           <Line dot={false} type="monotone" dataKey="value" animationEasing="linear" stroke={TOPAZ} strokeWidth="3px" />
           <XAxis
