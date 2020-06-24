@@ -169,6 +169,7 @@ const App: React.FC = () => {
         <Toolbar deviceInfo={deviceInfo} getValues={getValues} />
       </header>
       <article className="App-article">
+        <DeviceList deviceInfo={deviceInfo} />
         <hr />
         <div><h1>Overall Voltage</h1></div>
         <div className="App-graph-grid">     
