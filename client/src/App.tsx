@@ -173,7 +173,15 @@ const App: React.FC = () => {
         <div className="App-graph-grid">
           <ResourceGraphsNCharts devices={devices} resourceNames={resNameOverallCurrent} deviceNames={deviceNames} /> 
         </div>
-  
+          <hr />
+        <div><h1>Temperatures</h1></div>
+        <div className="App-graph-grid">
+          <ResourceGraphs devices={devices} resourceNames={resNameTemp} deviceNames={deviceNames} /> 
+        </div>
+        <hr />        
+        <div><h1>Info.</h1></div>
+        <ResourceBmsInfoEtc devices={devices} resourceNames={resNameEtc} deviceNames={deviceNames} />         
+        <hr />   
   */
   return (
     <div className="App">
@@ -188,15 +196,7 @@ const App: React.FC = () => {
         <div className="App-graph-grid">
           <ResourceCharts devices={devices} resourceNames={resNameCellVoltages} deviceNames={deviceNames} /> 
         </div>
-        <hr />
-        <div><h1>Temperatures</h1></div>
-        <div className="App-graph-grid">
-          <ResourceGraphs devices={devices} resourceNames={resNameTemp} deviceNames={deviceNames} /> 
-        </div>
-        <hr />        
-        <div><h1>Info.</h1></div>
-        <ResourceBmsInfoEtc devices={devices} resourceNames={resNameEtc} deviceNames={deviceNames} />         
-        <hr />   
+
       </article>
     </div>
   );
