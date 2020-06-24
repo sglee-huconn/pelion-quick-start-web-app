@@ -163,16 +163,11 @@ const App: React.FC = () => {
     return v;
   });
   /*         <DeviceList deviceInfo={deviceInfo} /> 
-          <hr />
-        <div><h1>Overall Voltage</h1></div>
-        <div className="App-graph-grid">     
-          <ResourceGraphsNCharts devices={devices} resourceNames={resNameOverallVoltage} deviceNames={deviceNames} /> 
-        </div>
         <hr />
-        <div><h1>Overall Current</h1></div>
+        <div><h1>Temperatures</h1></div>
         <div className="App-graph-grid">
-          <ResourceGraphsNCharts devices={devices} resourceNames={resNameOverallCurrent} deviceNames={deviceNames} /> 
-        </div>
+          <ResourceGraphs devices={devices} resourceNames={resNameTemp} deviceNames={deviceNames} /> 
+        </div> 
 
 
   */
@@ -183,15 +178,21 @@ const App: React.FC = () => {
       </header>
       <article className="App-article">
         <hr />
+        <div><h1>Overall Voltage</h1></div>
+        <div className="App-graph-grid">     
+          <ResourceGraphsNCharts devices={devices} resourceNames={resNameOverallVoltage} deviceNames={deviceNames} /> 
+        </div>
+        <hr />
+        <div><h1>Overall Current</h1></div>
+        <div className="App-graph-grid">
+          <ResourceGraphsNCharts devices={devices} resourceNames={resNameOverallCurrent} deviceNames={deviceNames} /> 
+        </div>        
+        <hr />
         <div><h1>Cell Voltages</h1></div>
         <div className="App-graph-grid">
           <ResourceCharts devices={devices} resourceNames={resNameCellVoltages} deviceNames={deviceNames} /> 
         </div>
-        <hr />
-        <div><h1>Temperatures</h1></div>
-        <div className="App-graph-grid">
-          <ResourceGraphs devices={devices} resourceNames={resNameTemp} deviceNames={deviceNames} /> 
-        </div>        
+       
         <hr />        
         <div><h1>Info.</h1></div>
         <ResourceBmsInfoEtc devices={devices} resourceNames={resNameEtc} deviceNames={deviceNames} />         
