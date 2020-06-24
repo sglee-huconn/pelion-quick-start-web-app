@@ -89,46 +89,48 @@ const ResourceBmsInfoEtc: React.FunctionComponent<ToolbarProps> = ({ devices, de
     }              
 
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>remain capacity(%)</th>
-            <th>battery physical capacity(Ah)</th>
-            <th>battery remain capacity(Ah)</th>
-            <th>battery cycle capacity(Ah)</th>
-            <th>current power(W)</th>
-          </tr>
-        </thead>
-        <tbody>
+      <div>
+        <table>
+          <thead>
             <tr>
-              <td title={remainCapacity}></td>
-              <td title={battPhysicalCapacity}></td>
-              <td title={batteryRemainCapacity}></td>
-              <td title={batteryCycleCapacity}></td>
-              <td title={currentPower}></td>
+              <th>remain capacity(%)</th>
+              <th>battery physical capacity(Ah)</th>
+              <th>battery remain capacity(Ah)</th>
+              <th>battery cycle capacity(Ah)</th>
+              <th>current power(W)</th>
             </tr>
-        </tbody>
-      </table>
-      <table>
-        <thead>
-          <tr>
-            <th>cell average voltage(V)</th>
-            <th>cell lowest voltage(V)</th>
-            <th>cell highest voltage(V)</th>
-            <th>cell number lowest voltage(Ah)</th>
-            <th>cell number highest voltage(W)</th>
-          </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
+              <tr>
+                <td title={remainCapacity}></td>
+                <td title={battPhysicalCapacity}></td>
+                <td title={batteryRemainCapacity}></td>
+                <td title={batteryCycleCapacity}></td>
+                <td title={currentPower}></td>
+              </tr>
+          </tbody>
+        </table>
+        <table>
+          <thead>
             <tr>
-              <td title={cellAverageVoltage}></td>
-              <td title={cellLowestVoltage}></td>
-              <td title={cellHighestVoltage}></td>
-              <td title={cellNumberLowestVoltage}></td>
-              <td title={cellNumberHighestVoltage}></td>
+              <th>cell average voltage(V)</th>
+              <th>cell lowest voltage(V)</th>
+              <th>cell highest voltage(V)</th>
+              <th>cell number lowest voltage(Ah)</th>
+              <th>cell number highest voltage(W)</th>
             </tr>
-        </tbody>
-      </table>      
+          </thead>
+          <tbody>
+              <tr>
+                <td title={cellAverageVoltage}></td>
+                <td title={cellLowestVoltage}></td>
+                <td title={cellHighestVoltage}></td>
+                <td title={cellNumberLowestVoltage}></td>
+                <td title={cellNumberHighestVoltage}></td>
+              </tr>
+          </tbody>
+        </table>  
+      </div>    
     );
   }
 
