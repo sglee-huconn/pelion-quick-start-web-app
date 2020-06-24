@@ -17,19 +17,19 @@ interface ToolbarProps {
 }
 
 const options = {
-  width: 400,
-  height: 120,
-  yellowFrom: 2.0,
-  yellowTo: 3.0,
-  redFrom: 4.0,
-  redTo:5.0,
-  min: 2.0,
-  max: 5.0,
-  minorTicks: 0.1
+  width: 1000,
+  height: 1000,
+  yellowFrom: 40.0,
+  yellowTo: 50.0,
+  redFrom: 50.0,
+  redTo:100.0,
+  min: 0.0,
+  max: 100.0,
+  minorTicks: 1
 }
 
 const state = {
-  title: "Voltage",
+  title: ' ',
   voltage: 0.0
 }
 
@@ -89,12 +89,9 @@ const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, r
 
         return (
           <div className="device" key={res}>
-            <h3 title={deviceId}>
-              {resourceName}
-            </h3>
             <div className="App-graph">
-              <div className="VoltageGauge">
-                <Chart chartType = "Gauge" width="100%" height="400px" data={getData()} options={options} />
+              <div className="Gauge">
+                <Chart chartType = "Gauge" width="100%" height="1000px" data={getData()} options={options} />
               </div>              
               <div className="graph">{(paths[res] === undefined) ? val1 : showPath(paths[res])}</div>
               <div className="value">
@@ -112,7 +109,7 @@ const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, r
     const min = Math.floor(values.reduce((a, c) => (c.value < a ? c.value : a), Infinity));
     const margin = Math.ceil((max - min) * 0.1);
     return (
-      <ResponsiveContainer aspect={16 / 9} minHeight={150}>
+      <ResponsiveContainer aspect={16 / 9} minHeight={150} maxHeight={1000}>
         <LineChart data={values}>
           <Line dot={false} type="monotone" dataKey="value" animationEasing="linear" stroke={TOPAZ} strokeWidth="3px" />
           <XAxis

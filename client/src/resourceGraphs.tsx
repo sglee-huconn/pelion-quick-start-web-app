@@ -89,7 +89,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     const margin = Math.ceil((max - min) * 0.1);
 
     return (
-      <ResponsiveContainer aspect={16 / 9} minHeight={150}>
+      <ResponsiveContainer aspect={16 / 9} minHeight={150} maxHeight={300}>
         <LineChart data={values}>
           <Line dot={false} type="monotone" dataKey="value" animationEasing="linear" stroke={TOPAZ} strokeWidth="3px" />
           <XAxis

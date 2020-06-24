@@ -70,7 +70,7 @@ const ResourceCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
       return (
         <div className="device" key={res}>
           <div className="App-graph">
-            <div className="VoltageGauge">
+            <div className="Gauge">
               <Chart
                 chartType = "Gauge"
                 width="100%"

@@ -193,10 +193,7 @@ const App: React.FC = () => {
         <hr />        
         <div><h1>Info.</h1></div>
         <ResourceBmsInfoEtc devices={devices} resourceNames={resNameEtc} deviceNames={deviceNames} />         
-        <hr />
-        <div><h1>GPS</h1></div>        
-        <ResourceGps devices={devices} resourceNames={resNamesGPS} deviceNames={deviceNames} /> 
-        <hr />        
+        <hr />   
       </article>
     </div>
   );
