@@ -12,7 +12,7 @@ interface ToolbarProps {
 
 const ResourceBmsInfoEtc: React.FunctionComponent<ToolbarProps> = ({ devices, deviceNames, resourceNames }) => {
 
-  const showDevice(paths: Paths, deviceId: string, resNames: Names) => {
+  const showDevice = (paths: Paths, deviceId: string, resNames: Names) => {
     const remainCapacityPath = Object.keys(resNames)[0];
     const battPhysicalCapacityPath = Object.keys(resNames)[1];
     const batteryRemainCapacityPath = Object.keys(resNames)[2];
