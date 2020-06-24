@@ -47,15 +47,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
           time: new Date(),
           value: 0,
           epoch: 0
-        },
-        {
-          id: 0,
-          device_id: deviceId,
-          path: res,
-          time: new Date(),
-          value: 0,
-          epoch: 0
-        }        
+        }      
       ];
 
         const [val1, val2] = (paths[res] === undefined) ? defaultResValue: paths[res];
