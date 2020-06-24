@@ -25,67 +25,67 @@ const ResourceBmsInfoEtc: React.FunctionComponent<ToolbarProps> = ({ devices, de
     const cellNumberLowestVoltagePath = Object.keys(resNames)[8];
     const cellNumberHighestVoltagePath = Object.keys(resNames)[9];
 
-    let remainCapacity: string | number = 'no data';
-    let battPhysicalCapacity: string | number = 'no data';
-    let batteryRemainCapacity: string | number = 'no data';
-    let batteryCycleCapacity: string | number = 'no data';
-    let currentPower: string | number = 'no data';
+    let remainCapacity: string = 'no data';
+    let battPhysicalCapacity: string = 'no data';
+    let batteryRemainCapacity: string = 'no data';
+    let batteryCycleCapacity: string = 'no data';
+    let currentPower: string = 'no data';
 
-    let cellAverageVoltage: string | number = 'no data';
-    let cellLowestVoltage: string | number = 'no data';
-    let cellHighestVoltage: string | number = 'no data';
-    let cellNumberLowestVoltage: string | number = 'no data';
-    let cellNumberHighestVoltage: string | number = 'no data';    
+    let cellAverageVoltage: string = 'no data';
+    let cellLowestVoltage: string = 'no data';
+    let cellHighestVoltage: string = 'no data';
+    let cellNumberLowestVoltage: string = 'no data';
+    let cellNumberHighestVoltage: string = 'no data';    
 
     if (paths[remainCapacityPath] !== undefined) {
       const [val1, val2] = paths[remainCapacityPath];
-      remainCapacity = val1.value;     
+      remainCapacity = val1.value.toString();     
     }
 
     if (paths[battPhysicalCapacityPath] !== undefined) {
       const [val1, val2] = paths[battPhysicalCapacityPath];
-      battPhysicalCapacity = val1.value;     
+      battPhysicalCapacity = val1.value.toString();     
     }  
 
     if (paths[batteryRemainCapacityPath] !== undefined) {
       const [val1, val2] = paths[batteryRemainCapacityPath];
-      batteryRemainCapacity = val1.value;     
+      batteryRemainCapacity = val1.value.toString();     
     }      
 
     if (paths[batteryCycleCapacityPath] !== undefined) {
       const [val1, val2] = paths[batteryCycleCapacityPath];
-      batteryCycleCapacity = val1.value;     
+      batteryCycleCapacity = val1.value.toString();     
     }         
     
     if (paths[currentPowerPath] !== undefined) {
       const [val1, val2] = paths[currentPowerPath];
-      currentPower = val1.value;     
+      currentPower = val1.value.toString();     
     }          
 
 
     if (paths[cellAverageVoltagePath] !== undefined) {
       const [val1, val2] = paths[cellAverageVoltagePath];
-      cellAverageVoltage = val1.value;     
+      cellAverageVoltage = val1.value.toString();     
     }
 
     if (paths[cellLowestVoltagePath] !== undefined) {
       const [val1, val2] = paths[cellLowestVoltagePath];
-      cellLowestVoltage = val1.value;     
+      cellLowestVoltage = val1.value.toString();     
     }  
 
     if (paths[cellHighestVoltagePath] !== undefined) {
       const [val1, val2] = paths[cellHighestVoltagePath];
-      cellHighestVoltage = val1.value;     
+      cellHighestVoltage = val1.value.toString();     
     }      
 
     if (paths[cellNumberLowestVoltagePath] !== undefined) {
       const [val1, val2] = paths[cellNumberLowestVoltagePath];
-      cellNumberLowestVoltage = val1.value;     
+      cellNumberLowestVoltage = val1.value.toString();     
     }         
     
     if (paths[cellNumberHighestVoltagePath] !== undefined) {
       const [val1, val2] = paths[cellNumberHighestVoltagePath];
-      cellNumberHighestVoltage = val1.value;     
+      cellNumberHighestVoltage = val1.value.toString();     
     }              
 
     return (
