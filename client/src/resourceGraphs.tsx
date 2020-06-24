@@ -2,7 +2,6 @@ import moment from "moment";
 import React from "react";
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { Devices, Names, Paths, ResourceValue } from ".";
-import { Chart } from "react-google-charts";
 
 const TOPAZ = "#00C1DE";
 const OPAL = "#FFFFFF";
@@ -26,22 +25,6 @@ const options = {
   min: 2.0,
   max: 5.0,
   minorTicks: 0.1
-}
-
-const state = {
-  title: "Voltage",
-  voltage: 0.0
-}
-
-const getVoltage = () => {
-  return Math.random() * 5.0;
-}
-
-const getData = () => {
-  return [
-    ["Label", "Value"],
-    [state.title, state.voltage]
-  ]
 }
 
 const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resourceNames }) => {
@@ -69,20 +52,19 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
       .map(res => {
         const resourceName = resNames[res];
 
-        state.title = resourceName;
+        const defaultResValue: ResourceValue = {
+          id: 0,
+          device_id: deviceId,
+          path: res,
+          time: new Date(),
+          value: 0,
+          epoch: 0
+        };
 
-        if (paths[res] === undefined) {
-          
-          state.voltage = 0.0;
-        }
-        else {
-          const [val1, val2] = paths[res];
+        const [val1, val2] = (paths[res] === undefined) ? [defaultResValue, defaultResValue]: paths[res];
 
-          const styleColour =
-            val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;
-
-          state.voltage = val1.value;
-        }
+        const styleColour =
+          val1 && val2 && val1.value !== val2.value ? (val1.value > val2.value ? PERIDOT : AMBER) : OPAL;        
 
         return (
           <div className="device" key={res}>
@@ -90,7 +72,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
               {resourceName}
             </h3>
             <div className="App-graph">
-              <div className="graph">{showPath(paths[res])}</div>
+              <div className="graph">{(paths[res] === undefined) ? val1 : showPath(paths[res])}</div>
               <div className="value">
                 <h1 title={moment(val1.time, "lll").toString()}>
                   <span style={{ color: styleColour }}>{val1.value.toFixed(1)}</span>
@@ -105,6 +87,7 @@ const ResourceGraphs: React.FC<ToolbarProps> = ({ devices, deviceNames, resource
     const max = Math.ceil(values.reduce((a, c) => (a ? (c.value > a ? c.value : a) : c.value), -Infinity));
     const min = Math.floor(values.reduce((a, c) => (c.value < a ? c.value : a), Infinity));
     const margin = Math.ceil((max - min) * 0.1);
+
     return (
       <ResponsiveContainer aspect={16 / 9} minHeight={150}>
         <LineChart data={values}>
