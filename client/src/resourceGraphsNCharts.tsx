@@ -17,15 +17,16 @@ interface ToolbarProps {
 }
 
 const options = {
-  width: 250,
-  height: 250,
+  width: 200,
+  height: 200,
   yellowFrom: 40.0,
   yellowTo: 50.0,
   redFrom: 50.0,
-  redTo:100.0,
+  redTo:80.0,
   min: 0.0,
-  max: 100.0,
-  minorTicks: 1
+  max: 80.0,
+  minorTicks: 5
+  majorTicks: 10
 }
 
 const state = {
@@ -95,7 +96,7 @@ const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, r
             </h3>
             <div className="App-graph">
               <div className="Gauge">
-                <Chart chartType = "Gauge" width="100%" height="250px" data={getData()} options={options} />
+                <Chart chartType = "Gauge" width="100%" height="200px" data={getData()} options={options} />
               </div>              
               <div className="graph">{(paths[res] === undefined) ? showPath(defaultResValue) : showPath(paths[res])}</div>
               <div className="value">
@@ -113,7 +114,7 @@ const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, r
     const min = Math.floor(values.reduce((a, c) => (c.value < a ? c.value : a), Infinity));
     const margin = Math.ceil((max - min) * 0.1);
     return (
-      <ResponsiveContainer aspect={16 / 9} minHeight={200} maxHeight={250}>
+      <ResponsiveContainer aspect={16 / 9} minHeight={200} maxHeight={200}>
         <LineChart data={values}>
           <Line dot={false} type="monotone" dataKey="value" animationEasing="linear" stroke={TOPAZ} strokeWidth="3px" />
           <XAxis
