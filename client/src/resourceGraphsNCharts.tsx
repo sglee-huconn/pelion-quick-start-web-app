@@ -107,28 +107,28 @@ const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, r
         );
       });
 
-  // const showPath = (values: ResourceValue[]) => {
-  //   const max = Math.ceil(values.reduce((a, c) => (a ? (c.value > a ? c.value : a) : c.value), -Infinity));
-  //   const min = Math.floor(values.reduce((a, c) => (c.value < a ? c.value : a), Infinity));
-  //   const margin = Math.ceil((max - min) * 0.1);
-  //   return (
-  //     <ResponsiveContainer aspect={16 / 9} minHeight={150}>
-  //       <LineChart data={values}>
-  //         <Line dot={false} type="monotone" dataKey="value" animationEasing="linear" stroke={TOPAZ} strokeWidth="3px" />
-  //         <XAxis
-  //           scale="time"
-  //           dataKey="epoch"
-  //           type="number"
-  //           stroke={OPAL}
-  //           domain={["auto", "auto"]}
-  //           tickFormatter={d => moment(d).format("LT")}
-  //         />
-  //         <YAxis stroke={OPAL} domain={[Math.floor(min - margin), Math.ceil(max + margin)]} />
-  //         <Tooltip labelFormatter={d => moment(d).format("ll LTS")} contentStyle={{ backgroundColor: ONYX }} />
-  //       </LineChart>
-  //     </ResponsiveContainer>
-  //   );
-  // };
+  const showPath = (values: ResourceValue[]) => {
+    const max = Math.ceil(values.reduce((a, c) => (a ? (c.value > a ? c.value : a) : c.value), -Infinity));
+    const min = Math.floor(values.reduce((a, c) => (c.value < a ? c.value : a), Infinity));
+    const margin = Math.ceil((max - min) * 0.1);
+    return (
+      <ResponsiveContainer aspect={16 / 9} minHeight={150}>
+        <LineChart data={values}>
+          <Line dot={false} type="monotone" dataKey="value" animationEasing="linear" stroke={TOPAZ} strokeWidth="3px" />
+          <XAxis
+            scale="time"
+            dataKey="epoch"
+            type="number"
+            stroke={OPAL}
+            domain={["auto", "auto"]}
+            tickFormatter={d => moment(d).format("LT")}
+          />
+          <YAxis stroke={OPAL} domain={[Math.floor(min - margin), Math.ceil(max + margin)]} />
+          <Tooltip labelFormatter={d => moment(d).format("ll LTS")} contentStyle={{ backgroundColor: ONYX }} />
+        </LineChart>
+      </ResponsiveContainer>
+    );
+  };
 
   const showDevices = (d: Devices, r: Names) => 
     Object.keys(d)
