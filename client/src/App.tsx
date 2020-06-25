@@ -171,6 +171,12 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
         <Toolbar deviceInfo={deviceInfo} getValues={getValues} />
+        <div style="text-align:right;"><h3>GET requests/resonses: 2783 / 2814 [<span id="calculation"></span>], last updated: <span id="datetime"></span></h3></div>
+        <script>
+            var dt = new Date();
+            document.getElementById("datetime").innerHTML = dt.toLocaleString();
+            document.getElementById("calculation").innerHTML = (2783.0 * 100 / 2814.0).toFixed(2) + '%';
+        </script>           
       </header>
       <article className="App-article">
         <hr />
