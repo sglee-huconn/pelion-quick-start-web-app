@@ -163,7 +163,12 @@ const App: React.FC = () => {
     return v;
   });
   /*         <DeviceList deviceInfo={deviceInfo} /> 
-
+          <h3>GET requests/resonses: 2783 / 2814 [<span id="calculation"></span>], last updated: <span id="datetime"></span></h3>
+          <script>
+            var dt = new Date();
+            document.getElementById("datetime").innerHTML = dt.toLocaleString();
+            document.getElementById("calculation").innerHTML = (2783.0 * 100 / 2814.0).toFixed(2) + '%';
+        </script>  
 
 
   */
@@ -172,12 +177,7 @@ const App: React.FC = () => {
       <header className="App-header">
         <Toolbar deviceInfo={deviceInfo} getValues={getValues} />
         <div className="App-header-stat">
-          <h3>GET requests/resonses: 2783 / 2814 [<span id="calculation"></span>], last updated: <span id="datetime"></span></h3>
-          <script>
-            var dt = new Date();
-            document.getElementById("datetime").innerHTML = dt.toLocaleString();
-            document.getElementById("calculation").innerHTML = (2783.0 * 100 / 2814.0).toFixed(2) + '%';
-        </script>                
+          <h3>GET requests/resonses: 2783 / 2814 [98.90%], last updated: 2020. 6. 26. ¿ÀÈÄ 4:55:00</h3>              
         </div>
       </header>
       <article className="App-article">
