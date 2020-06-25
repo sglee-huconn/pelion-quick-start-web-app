@@ -25,7 +25,7 @@ const options = {
   redTo:80.0,
   min: 0.0,
   max: 80.0,
-  minorTicks: 5
+  minorTicks: 5,
   majorTicks: 10
 }
 
