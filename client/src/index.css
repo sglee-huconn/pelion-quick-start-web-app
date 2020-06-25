@@ -11,6 +11,11 @@ code {
 .App {
   text-align: center;
 }
+
+.App-header-stat {
+  text-align: right;
+}
+
 body {
   background-color: #333e48;
   color: #ffffff;
