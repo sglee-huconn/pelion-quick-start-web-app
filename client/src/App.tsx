@@ -107,6 +107,8 @@ const App: React.FC = () => {
   const [deviceInfo, setDeviceInfo] = useState<DeviceInfo[]>([]);
   const [deviceNames, setDeviceNames] = useState<Names>({});
 
+  let lastUpdated: Date = new Date();
+
   const devices: Devices = {};
 
   const getValues = () => {
@@ -126,6 +128,8 @@ const App: React.FC = () => {
         epoch: new Date(a.time).valueOf(),
       }));
       setValues(val);
+
+      lastUpdated = val[0].time;
     }
   };
 
@@ -177,7 +181,7 @@ const App: React.FC = () => {
       <header className="App-header">
         <Toolbar deviceInfo={deviceInfo} getValues={getValues} />
         <div className="App-header-stat">
-          <h3>GET requests/resonses: 2783 / 2814 [98.90%], last updated: 2020. 6. 26. 16:55:04</h3>              
+          <h3>GET requests/resonses: 2783 / 2814 [98.90%], last updated: {lastUpdated.toLocaleString()}}</h3>              
         </div>
       </header>
       <article className="App-article">
