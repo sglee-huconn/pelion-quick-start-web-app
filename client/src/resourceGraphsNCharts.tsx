@@ -88,7 +88,6 @@ const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, r
         state.title = resourceName;
         state.voltage = val1.value;
 
-
         return (
           <div className="device" key={res}>
             <div className="App-graph">
