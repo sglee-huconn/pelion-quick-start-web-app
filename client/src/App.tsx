@@ -61,16 +61,16 @@ const resNameOverallCurrent: Names = {
 }
 
 const resNameCellVoltages: Names = {
-  "/3316/1/5700": "Cell0 Voltage",
-  "/3316/2/5700": "Cell1 Voltage",
-  "/3316/3/5700": "Cell2 Voltage",
-  "/3316/4/5700": "Cell3 Voltage",
-  "/3316/5/5700": "Cell4 Voltage",
-  "/3316/6/5700": "Cell5 Voltage",
-  "/3316/7/5700": "Cell6 Voltage",
-  "/3316/8/5700": "Cell7 Voltage",
-  "/3316/9/5700": "Cell8 Voltage",
-  "/3316/10/5700": "Cell9 Voltage"
+  "/3316/1/5700": "Cell0",
+  "/3316/2/5700": "Cell1",
+  "/3316/3/5700": "Cell2",
+  "/3316/4/5700": "Cell3",
+  "/3316/5/5700": "Cell4",
+  "/3316/6/5700": "Cell5",
+  "/3316/7/5700": "Cell6",
+  "/3316/8/5700": "Cell7",
+  "/3316/9/5700": "Cell8",
+  "/3316/10/5700": "Cell9"
 }
 
 const resNameEtc: Names = {

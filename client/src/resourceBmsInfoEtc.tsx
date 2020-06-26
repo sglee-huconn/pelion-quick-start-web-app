@@ -90,8 +90,8 @@ const ResourceBmsInfoEtc: React.FunctionComponent<ToolbarProps> = ({ devices, de
             <th>cell average voltage(V)</th>
             <th>cell lowest voltage(V)</th>
             <th>cell highest voltage(V)</th>
-            <th>cell number lowest voltage(Ah)</th>
-            <th>cell number highest voltage(W)</th>              
+            <th>cell number lowest voltage</th>
+            <th>cell number highest voltage</th>              
           </tr>
         </thead>
         <tbody>
