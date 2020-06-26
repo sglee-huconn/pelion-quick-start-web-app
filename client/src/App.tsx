@@ -157,6 +157,7 @@ const App: React.FC = () => {
   useEffect(getValues, []);
 
   values.map(v => {
+    /*
     if (!devices[v.device_id]) {
       devices[v.device_id] = {};
     }
@@ -164,6 +165,19 @@ const App: React.FC = () => {
       devices[v.device_id][v.path] = [];
     }
     devices[v.device_id][v.path].push(v);
+    */
+
+    const forPresentationKey: string = 'for_presentation';
+
+    if (!devices[forPresentationKey]) {
+      devices[forPresentationKey] = {};
+    }
+
+    if (!devices[forPresentationKey][v.path]) {
+      devices[forPresentationKey][v.path] = [];
+    }
+    devices[forPresentationKey][v.path].push(v);
+
     return v;
   });
   /*         <DeviceList deviceInfo={deviceInfo} /> 

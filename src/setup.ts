@@ -100,11 +100,9 @@ export const setup = async () => {
       .then(res => res.json())) as RegisteredDevicesResponse;
 
     await resolveIn(5000);
-    */
     registeredDevices.data
       // Filter for matching DEVICE_ID
       .filter(device => deviceId.reduce<boolean>((prev, curr) => prev || matchWithWildcard(curr, device.id), false))
-      /*
       .forEach(async device => {
         // Get resources on each matched device GET /v2/endpoints/{deviceID}
         const resources = (await fetch(`${endpointsUrl}/${device.id}`, { headers })
@@ -127,8 +125,6 @@ export const setup = async () => {
             }
           );
       });
-      */
-    /*      
     console.log("Subscriptions updated");
     await resolveIn(5000);
     */
