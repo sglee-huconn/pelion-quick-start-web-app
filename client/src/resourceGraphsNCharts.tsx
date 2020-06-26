@@ -110,7 +110,7 @@ const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, r
     const min = Math.floor(values.reduce((a, c) => (c.value < a ? c.value : a), Infinity));
     const margin = Math.ceil((max - min) * 0.1);
     return (
-      <ResponsiveContainer aspect={16 / 9} minHeight={220} maxHeight={220}>
+      <ResponsiveContainer aspect={16 / 9} minHeight={240} maxHeight={240}>
         <LineChart data={values}>
           <Line dot={false} type="monotone" dataKey="value" animationEasing="linear" stroke={TOPAZ} strokeWidth="3px" />
           <XAxis
