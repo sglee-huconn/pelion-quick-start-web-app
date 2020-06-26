@@ -201,12 +201,12 @@ const App: React.FC = () => {
       <article className="App-article">
         <hr />
         <div><h1>Overall Voltage</h1></div>
-        <div className="App-graph-grid">     
+        <div className="App-graph-grid-t2">     
           <ResourceGraphsNCharts devices={devices} resourceNames={resNameOverallVoltage} deviceNames={deviceNames} /> 
         </div>
         <hr />
         <div><h1>Overall Current</h1></div>
-        <div className="App-graph-grid">
+        <div className="App-graph-grid-t2">
           <ResourceGraphsNCharts devices={devices} resourceNames={resNameOverallCurrent} deviceNames={deviceNames} /> 
         </div>        
         <hr />

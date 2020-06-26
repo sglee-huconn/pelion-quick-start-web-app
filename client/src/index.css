@@ -37,6 +37,13 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(5px, 1fr));
   gap: 5px 5px;
 }
+
+.App-graph-grid-t2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 5px 5px;
+}
+
 .device-list {
   width: 100%;
 }
@@ -45,7 +52,7 @@ body {
   margin: 5px;
   padding: 5px;
   gap: 5px 5px;
-  grid-template-columns: repeat(auto-fit, minmax(1fr, 200px));
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 0));
   grid-template-areas: "graph value";
 }
 
