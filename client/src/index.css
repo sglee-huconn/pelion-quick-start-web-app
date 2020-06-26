@@ -40,7 +40,7 @@ body {
 
 .App-graph-grid-t2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 800px));
   gap: 5px 5px;
 }
 

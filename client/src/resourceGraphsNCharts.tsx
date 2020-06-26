@@ -92,7 +92,9 @@ const ResourceGraphsNCharts: React.FC<ToolbarProps> = ({ devices, deviceNames, r
         return (
           <div className="device" key={res}>
             <div className="App-graph">
-              <Chart chartType = "Gauge" width="100%" height="200px" data={getData()} options={options} />           
+              <div className="Gauge">
+                <Chart chartType = "Gauge" width="100%" height="200px" data={getData()} options={options} />
+              </div>              
               <div className="graph">{(paths[res] === undefined) ? showPath(defaultResValue) : showPath(paths[res])}</div>
               <div className="value">
                 <h1 title={moment(val1.time, "lll").toString()}>
