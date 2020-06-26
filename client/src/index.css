@@ -45,7 +45,7 @@ body {
   margin: 5px;
   padding: 5px;
   gap: 5px 5px;
-  grid-template-columns: repeat(auto-fit, minmax(1fr, 0));
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 200px));
   grid-template-areas: "graph value";
 }
 
